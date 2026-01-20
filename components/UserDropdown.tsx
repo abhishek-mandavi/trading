@@ -11,16 +11,16 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { signOut } from "@/lib/action/auth.actions";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-const UserDropdown = () => {
+const UserDropdown =  ({ user}: {user: User})  => {
     const router = useRouter();
     const handleSignOut = async () =>{
+        await signOut();
         router.push("/sign-in");
     }
-
-    const user = {name: "Abhishek" , email:"xnxx@gmail.com"}
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
