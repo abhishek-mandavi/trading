@@ -1,4 +1,4 @@
-## <a name="about">✨ About</a>
+## <a name="about">About</a>
 
 Modern AI-Powered Stock Market Platform
 
