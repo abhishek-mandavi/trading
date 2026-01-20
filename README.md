@@ -14,5 +14,9 @@ Key Features:
 
 🛡️ Admin Dashboard: comprehensive tools for managing stocks, publishing news, and monitoring user activity.
 
+## <a>Project Link </a>
+
+Link:-https://trading-one-livid.vercel.app/sign-in
+
 
 
