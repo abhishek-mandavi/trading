@@ -15,8 +15,10 @@ import { signOut } from "@/lib/action/auth.actions";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-const UserDropdown =  ({ user}: {user: User})  => {
+const UserDropdown =  ({ user, initialStocks }: {user: User, initialStocks: StockWithWatchlistStatus[]})  => {
+
     const router = useRouter();
+
     const handleSignOut = async () =>{
         await signOut();
         router.push("/sign-in");
@@ -26,7 +28,6 @@ const UserDropdown =  ({ user}: {user: User})  => {
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center gap-3 text-gray-4 hover:text-yellow-500">
                     <Avatar className="h-8 w-8">
-                        {/* <AvatarImage src="https://github.com/abhishek-mandavi"/> */}
                         <AvatarFallback className="bg-purple-500 text-yellow-900 text-sm font-bold">
                             {user.name[0]}
                         </AvatarFallback>
@@ -67,7 +68,7 @@ const UserDropdown =  ({ user}: {user: User})  => {
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="hidden sm:block bg-gray-600"/>
                 <nav className="sm:hidden">
-                    <Navitems/>
+                    <Navitems  initialStocks={initialStocks} />
                 </nav>
             </DropdownMenuContent>
         </DropdownMenu>

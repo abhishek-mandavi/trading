@@ -1,8 +1,10 @@
 import Navitems from "@/components/Navitems";
 import UserDropdown from "@/components/UserDropdown";
+import { searchStocks } from "@/lib/action/finnhub.actions";
 import Link from 'next/link';
 
 const Header = async ({ user }: { user: User }) => {
+    const initialStocks = await searchStocks();
     return (
         <header className="sticky top-0 header">
             <div className="container header-wrapper">
@@ -11,10 +13,10 @@ const Header = async ({ user }: { user: User }) => {
                 </Link>
 
                 <nav className="hidden sm:block">
-                    <Navitems/>
+                    <Navitems initialStocks={initialStocks}/>
                 </nav>
 
-                <UserDropdown user = {user}/>
+                <UserDropdown user = {user} initialStocks={initialStocks}/>
             </div>
         </header>
     )
